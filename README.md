@@ -233,7 +233,7 @@ python -m recipe_rag.training.llama_sft.train_lora \
   --output artifacts/llama-recipe-lora
 ```
 
-## BCE Reranker fine tune
+## BCE Reranker SFT
 
 Reranker 目标是判断 `query` 和 `passage/chunk` 在菜谱领域是否精准相关。微调发生在 RAG 训练优化阶段，用 query-passage 相关性数据把 BCE Reranker 从通用相关性判断适配到菜谱领域精准排序。
 
