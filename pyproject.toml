@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recipe-rag-assistant"
+version = "0.1.0"
+description = "菜谱领域 RAG、BCE Reranker 微调与 LLaMA SFT 训练代码骨架"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.24",
+  "pyyaml>=6.0",
+  "tqdm>=4.66",
+  "jieba>=0.42.1",
+]
+
+[project.optional-dependencies]
+retrieval = [
+  "faiss-cpu>=1.7.4",
+  "sentence-transformers>=2.7",
+  "rank-bm25>=0.2.2",
+]
+train = [
+  "torch>=2.1",
+  "transformers>=4.41",
+  "datasets>=2.19",
+  "accelerate>=0.30",
+  "peft>=0.11",
+  "trl>=0.9",
+]
+serve = [
+  "vllm>=0.4.3",
+  "fastapi>=0.111",
+  "uvicorn>=0.29",
+]
+dev = [
+  "pytest>=8.2",
+]
+
+[project.scripts]
+recipe-build-index = "recipe_rag.cli.build_index:main"
+recipe-query = "recipe_rag.cli.query:main"
+recipe-make-reranker-data = "recipe_rag.cli.make_reranker_data:main"
+recipe-evaluate = "recipe_rag.cli.evaluate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,38 @@
+paths:
+  raw_recipes: data/raw/recipes.jsonl
+  clean_recipes: data/clean/recipes.jsonl
+  alias_map: data/aliases.json
+  index_dir: artifacts/index
+
+models:
+  embedding_model: maidalun1020/bce-embedding-base_v1
+  reranker_model: maidalun1020/bce-reranker-base_v1
+  llama_model: meta-llama/Meta-Llama-3-8B-Instruct
+
+index:
+  vector_backend: auto
+  faiss_factory: Flat
+  bm25_k1: 1.5
+  bm25_b: 0.75
+
+retrieval:
+  vector_top_k: 20
+  bm25_top_k: 20
+  fused_top_k: 20
+  rerank_top_k: 3
+  rrf_k: 60
+
+training:
+  reranker:
+    positive_negative_ratio: "1:7"
+    hard_negative_mix:
+      random: 2
+      bm25: 3
+      embedding: 2
+    epochs: 3
+    learning_rate: 0.00002
+  llama_sft:
+    epochs: 3
+    learning_rate: 0.0002
+    lora_r: 16
+    lora_alpha: 32

@@ -1,0 +1,5 @@
+{"query_id":"q1","chunk_id":"tomato_egg:steps","relevance":3}
+{"query_id":"q1","chunk_id":"tomato_egg:summary","relevance":1}
+{"query_id":"q2","chunk_id":"chicken_breast:steps","relevance":3}
+{"query_id":"q2","chunk_id":"chicken_breast:summary","relevance":2}
+{"query_id":"q3","chunk_id":"tomato_egg:ingredients","relevance":3}
