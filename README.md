@@ -1,4 +1,4 @@
-# Recipe RAG Assistant
+# Personized Recipe Assistant with RAG
 
 **Project Time:** April 2024 – June 2024
 
